@@ -23,3 +23,7 @@ let computed_fixed_point_test3 =
         (fun x -> x /. 2.)
         10.)
     = 1.25)
+    let computed_periodic_point_test0 =
+      computed_periodic_point (=) (fun x -> x / 2) 0 (-1) = -1
+    let computed_periodic_point_test1 =
+      computed_periodic_point (=) (fun x -> x *. x -. 1.) 2 0.5 

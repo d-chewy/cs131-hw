@@ -47,10 +47,42 @@ let rec set_all_union a = match a with
 
 (* Q6
    ============== *)
-let rec computed_fixed_point eq f x = let fix_pt = f x in if (eq fix_pt x) then x else computed_fixed_point (eq) (f) fix_pt;;
+let rec computed_fixed_point eq f x = let fix_pt = f x in if eq fix_pt x then x else computed_fixed_point eq f fix_pt;;
 (* let computed_fixed_point eq f x = *)
 
 (* Q7
    ============== *)
 (* let rec computed_periodic_point eq f p x;; *)
-let rec computed periodic point eq f p x = 
+(* let rec computed_periodic_point eq f p x = 
+  let rec per_x f p x = if p > 0 then per_x f (p-1) (f x) else x 
+  in 
+    let per_pt = per_x f p x in 
+    if eq per_pt x then x else computed_periodic_point eq f p per_pt  *)
+(* 
+let rec computed_periodic_point eq f p x = 
+  let rec iterate_i i p = if i < (p-1) then i + 1 else i
+  in let rec compute_per_pt i = (
+    let rec period_x f n x = 
+      if n > 0 then period_x f (n-1) (f x) else x
+    in let initial_x i = period_x f i x 
+    in let next_x i = period_x f (i+p) x
+    in if (iterate_i i p) = (p-1) 
+      then computed_periodic_point eq f p (period_x f p x) 
+      else
+      if eq (next_x i) (initial_x i) 
+        then x 
+        else compute_per_pt (iterate_i i p)
+  ) 
+  in compute_per_pt 0 *)
+
+  let rec computed_periodic_point eq f p x = 
+    let rec iter_i i p = if i < (p-1) then i + 1 else i
+  in let rec period_x f n x = 
+    if n > 0 then period_x f (n-1) (f x) else x
+  in let initial_x i = period_x f i x
+in let next_x_i = period_x f (i+p) x
+in if (iter_i) 
+
+(* Q8
+   ================ *)
+
