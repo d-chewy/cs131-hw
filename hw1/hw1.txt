@@ -1,0 +1,30 @@
+For each warmup function, I implemented it using recursion and pattern matching 
+without using
+any external libraries in order to practice my OCaml/Functional programming
+understanding. 
+
+For computed_periodic_point, I decided to define a helper function called
+per_pt_func inside in order to call it when necessary to compute my p applications
+of f on x.
+
+When it comes to filter_blind_alleys, I looked to solve a simpler problem first before 
+abstracting upwards until I finally solved the actual problem, which is to filter and 
+remove all non-productive rules.
+
+I first implemented a function which determined which symbols and right hand sides terminated, 
+assuming that I also had access to a list of symbols/rules that truly terminated.
+
+The next problem to solve is how do I construct the list of true values?
+Compute_rules uses computed_fixed_point to recursively update the terminable_list with
+productive rules until the entire grammar has been processed and no more changes to the productive list occur.
+
+To reconstruct the grammar without all the blind alley rules, I created a helper function called
+filter_rules which uses the list generated from compute_rules, and constructs a new list containing
+only the rules that are productive from the original grammar and includes the original
+starting symbol. 
+
+This process simplified the problem solving aspect, but figuring out what the types were for each function
+and how to pass them from one another while outputting a grammar in the same format as the input took a long time.
+Looking at the problem by itself without deconstructing it into smaller simpler problems proved to be a headache.
+This implementation may construct more lists than necessary, as we take an already constructed list and just rearrange/
+add one element to it.
