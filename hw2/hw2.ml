@@ -31,3 +31,17 @@ let parse_tree_leaves tree =
   in match tree with (* Tree can start with either a Leaf or a Node. *)
     | Leaf x -> [x]
     | Node(_,y) -> construct_list y
+
+(* Q3: acceptor is a function, returns None or Some x for some value x. fragment is a list of terminals
+
+  matcher is passed accept and frag. must match prefix p of frag s.t. accept (suffix of frag after p is removed). if match -> return accept's return, else None
+  try grammar rules in order, return result of accept on suffix. may not be shortest/longest
+  
+  what is acceptable? if accept succeeds on suffix fragment immediately following matching prefix
+
+  iterate through grammar in order and see if element in the list matches
+
+*)
+let make_matcher gram accept frag = 
+  let 
+  in
