@@ -1,0 +1,4 @@
+I was struggling greatly with hw2 already, and I just ran out of time.
+Other classes have been piling on homework and I chose to prioritize
+studying for my midterms instead. So I did not make an attempt at 
+make_parser. 
