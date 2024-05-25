@@ -1,0 +1,2 @@
+Could not finish in time. Did not solve the ambiguous case.
+Can refer to code to see "implementation" of predicate.
